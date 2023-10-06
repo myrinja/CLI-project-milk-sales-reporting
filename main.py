@@ -1,13 +1,13 @@
-# main.py
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base, Customer, Product, Sale
 
-# Create a SQLite database (you can change this to another database if needed)
-DATABASE_URL = "sqlite:///milk_sales.db"
-engine = create_engine(DATABASE_URL)
 
-# Create tables if they don't exist
+db_url = "sqlite:///milk_sales.db"
+engine = create_engine(db_url)
+
+
 Base.metadata.create_all(bind=engine)
 
 # Create a Session
