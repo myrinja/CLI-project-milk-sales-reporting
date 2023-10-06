@@ -10,11 +10,11 @@ engine = create_engine(db_url)
 
 Base.metadata.create_all(bind=engine)
 
-# Create a Session
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-session = SessionLocal()
 
-# CLI Commands (to be implemented)
+Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+session = Session()
+
+# CLI Commands 
 def add_customer(name):
     customer = Customer(name=name)
     session.add(customer)
@@ -43,7 +43,7 @@ def list_products():
     for product in products:
         print(f"Product ID: {product.id}, Name: {product.name}")
 
-# Example CLI commands (to be expanded)
+
 if __name__ == "__main__":
     while True:
         print("\nMilk Sales Reporting CLI")
